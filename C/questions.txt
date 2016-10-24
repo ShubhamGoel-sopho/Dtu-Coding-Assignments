@@ -1,0 +1,27 @@
+0.  pneumonoultramicroscopicsilicovolcanoconiosis can written as silicosis which is lung dieseases
+    which happens due to inhalation of micro particlesor volcanic particles..
+1.  getrusage() returns resource usage measures for who,
+    getrusage computes the cpu time for the process to occur for itself (RUSAGE_SELF)or for its children
+    elements(RUSAGE_CHILDREN) it computes all the factors ...
+2.  16
+3.  it is always good to pass the members by reference because though we are not changing it
+    but in pass by value we need memory,overhead in copying the data to new structure,and then extra 
+    time to return the new structures,using pass by reference these overheads can be saved..
+4.  the for loop works using fgetc function which is used to get a char casted in to an 
+    unsigned int and the loop runs untils we are reached toend file and we are checking a char by char
+    in the first condition the if checks for the alphabet or aphostrophe and second elseif checks for 
+    the digit if it is digit then we consume all the characters till we reached the char which is alphabet
+    and third else if checks that if the word is completed or not if it is then we compute the resource
+    time and spell check it and again we prepare for a new word thats all for is doing for us..
+5.  using fscanf we might ignore some chars that we not want to include in our word and we particularly
+    want to implement the spell checker that checks all the misspellings
+6.  because they will act as only key for our data structure we will not change them but we access 
+    so if we might not change their value  thats why for safety we going to make them constants..
+7.  i have used hash tables to that because in them i found there is less space wastage
+    and they are very quicker too because i have choosen the hash table size around 5k because 
+    this will make the load factor of the table to be 30 node per location if the uniformity remains and
+    the large dictionary is used ..
+    
+8.  actually i improved from 0.20 sec to 0.10 sec..
+9.  i tried to change the hash function and table size in order to improve performance..
+10. no i don't think code works fine..
