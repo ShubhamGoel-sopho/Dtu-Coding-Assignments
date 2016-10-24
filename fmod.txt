@@ -1,0 +1,11 @@
+double x =(sqrt(5)-1)/2;
+	cout<<x<<endl;
+	cout.precision(3);
+	cout<<x<<endl;
+	int key = 5463*7;
+	double val= key*0.8925;
+	cout<<val<<endl;
+	val =floor( 25*fmod( val, 1 ));
+	cout<<val;
+	/////hashing practise//////
+	/////i will use chaining method////////

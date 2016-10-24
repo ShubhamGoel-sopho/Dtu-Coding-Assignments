@@ -1,0 +1,196 @@
+-------------------
+1. Surviving in Vim
+-------------------
+Movement: Use 'hjkl' to move around in the document.
+'h' - Left
+'j' - Down
+'k' - Up
+'l' - Right
+
+Try it! Move to 1 to 2 to 3 to 4!
+
+___________________
+___1_______________
+___________________
+_______________3___
+_____4_____________
+___________________
+___________________
+______2____________
+___________________
+
+How about this maze?
+
+START
++.----------------------------+
+|.###.................########|
+|.###.###########.###.########|
+|.###.......#####.###.##.....#|
+|.#########.##.##.###.##.###.#|
+|.#########.##.##.###.##.###.#|
+|...........##.##.###.##.###.#|
+|#############.##.###.##.###.#|
+|#####....####....###.##...#.#|
+|#####.##.####.######.####.#.#|
+|#####.##......######.####.#.#|
+|#####.##############......#.#|
+|#####.#####################.#|
+|#####.....................#.#|
++---------------------------.-+
+                           END
+
+'i' - Go into insertion mode
+<ESC> - Get back to normal mode (from any other mode)
+':wq<Enter>' - Saves and quits Vim (must be in normal mode) mnemonic: Write and Quit
+
+Try it! Navigate to the right loation, go into insertion mode, fill in the
+blanks, and save the file!
+>> My name is Brandon Liu and I am a Junior.
+>> My name is ___________ and I am a ______.
+
+--------------------
+2. Advanced Movement
+--------------------
+
+'^' - Beginning of line
+'b' - Beginning of word
+'e' - End of word
+'w' - Next word
+'$' - End of line
+
+Try it! Using some of these keys is much faster than holding down 'h' or 'l'.
+
+>> This is some text here that you can use to try out the advanced movement motions!
+
+-----------------------------------------------
+2b. More advanced movement (not covered in PPT)
+-----------------------------------------------
+'B', 'E', and 'W' are all similar to 'b', and 'e', and 'w' except they stop at
+whitespace boundaries, whereas the lowercase versions stop at certain punctuations.
+Try navigating around the following line of code, and see how they compare!
+
+for(int i=0;i<N;i++) arr[i] = 0; // Bad spacing!!
+
+Use 'f' (mnemonic: "find") to go to the next occurrence of a character. Use 't'
+(mnemonic: "til" or "to") to go to right before the occurrence of a character.
+Try 'f$' and 't$' in the text below. Isn't it fast?
+
+>> Today, your purchase was $23.30. Thanks for shopping!
+
+------------------------
+3. Operators and Motions
+------------------------
+'d' - Delete
+'c' - Change (delete, then place in insertion mode)
+'y' - Yank (Vim's term for copy. Copy with 'y', paste with 'p')
+'v' - Visual/Highlight
+
+Combine operators with motions for greater efficiency!! Use the same operator
+twice to act upon the entire line.
+
+Delete the two words below using 'd2w':
+>> There are KITTENS BUNNIES two words that belong out of place here!
+
+Use 'dd' to delete the incorrect line
+Use 'cc' to delete the incorrect line but to be placed immediately into
+insert mode so that you can fix the line!
+>> Freshmen
+>> Sophomores
+>> Huskies!!
+>> Joonyurs
+>> Seniors
+
+Experiment with combining operators and motions in different ways!
+
+------------------------------------------
+4. Moving up and down (not covered in PPT)
+------------------------------------------
+'gg' - Move to top of the file
+'G' - Move to bottom of the file
+<C-e> - Move down, not moving the cursor (Ctrl-e)
+<C-y> - Move up, not moving the cursor (Ctrl-y)
+':n<Enter>' - Go to line n, e.g. type ':5<Enter>' to go to line 5
+
+Try it out in this file!
+
+-----------------------------
+5. Some other common commands
+-----------------------------
+'V' - visual _line_ highlighting
+'o' - create a new line below and go into insert mode (try it!)
+'x' - Delete the character under cursor
+'R' - Go into replacement mode
+'u' - Undo (very helpful :))
+'A' - Append to the end of the line
+'I' - Insert to the beginning of the line
+
+---------------
+6. Text Objects
+---------------
+Try using text objects to fix each line
+
+The current President of the United States is Badack Obama        (use w)
+
+One Two Three Four <Nyan> {Cat} Seven           (Remove the surrounding symbols and fill in the right numbers)
+
+void main(fill this in)                         (What should go inside the parentheses?)
+
+<a href="http://nyan.cat">Link to Google</a>    (Oh no, the link href is wrong!)
+
+<div>sd;lfjsd;lkfj</div>                        (use t)
+
+--------------------------
+7. Putting it all together
+--------------------------
+Suppose that we're creating a roster of people. We have one entry here already,
+but add one for yourself below it! Make use of visual highlight, copy, paste,
+and 'ciw' (super useful!). Try using 'o' to add another line with your hometown
+(or something else). Try using 'R' to replace your graduation year! See the
+commands below if you need help!
+
+Name: Brandon Liu
+House: Quincy
+Year: 2014
+Concentration: Computer Science
+
+Name: John Harvard
+House: Harvard House
+Year: 1636
+Concentration: Humanities
+Hobbies: Sitting as statue                 j
+
+1. Navigate to the line with "Name"
+2. 'Vjjj' to highlight the 4 lines
+3. 'y' to yank everything (which puts the text in your clipboard)
+4. 'jjjj' to move down to the next space
+5. 'p' to paste the previous entry
+6. Use motions and 'ciw' (or your preferred command) to change the name, house,
+and concentration
+7. 'R' to replace the graduation year
+8. 'o' to add an extra line with some information!
+9. ':w<Enter>' to save your work!
+
+-------------------
+8. Find and Replace
+-------------------
+Use '/' to find all instances of the string 'yank' in this document! Use 'n' and
+'N' to go through all occurrences.
+
+Use ':%s/yank/NYANCAT' to replace all instances of yank in this document.
+Use 'u' to undo your work :)
+
+Use visual line highlighting to replace all instances of Emacs with Vim below.
+Add the 'g' (global) flag to replace all instances on the same line.
+Don't use '%', because it's a flag to act on the entire document. Try it yourself!
+
+Emacs is the greatest text editor ever. I love Emacs. I love staying up with
+Emacs all night.
+
+Like regular expressions? Try using this command on the text below to rearrange
+the names. Use visual highlighting to select the text first.
+
+:s/\v(\w+), (\w+)/\2 \1/
+
+Liu, Brandon
+Ong, Joseph
+Malan, David
